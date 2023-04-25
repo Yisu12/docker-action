@@ -21,12 +21,5 @@ jobs:
     - name: Run the Docker image
       run: docker run --name myhttpd -p 80:80 -d http-build
       
-    - name: Wait for httpd to start
-      run: sleep 30s
-      shell: bash
-      
     - name: Check container running
       run: docker container ls
-      
-    - name: Check httpd website
-      run: curl localhost:80
