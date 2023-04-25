@@ -16,10 +16,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name
+      run: docker build . --file Dockerfile --tag http-build
       
     - name: Run the Docker image
-      run: docker run --name mynginx1 -p 80:80 -d my-image-name
+      run: docker run --name myhttpd -p 80:80 -d http-build
       
-    - name: Check nginx running
-      run: curl localhost:80
+    - name: Check container running
+      run: docker ls
