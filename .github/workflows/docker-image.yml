@@ -18,5 +18,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
-    - name: Check the Docker image
-      run: docker image ls
+    - name: Run the Docker image
+      run: docker run --name mynginx1 -p 80:80 -d my-image-name
+      
+    - name: Check nginx running
+      run: curl localhost:80
