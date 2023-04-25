@@ -1,4 +1,4 @@
-FROM debian:11-slim
+FROM debian:latest
 
 RUN apt-get -y update
 RUN apt-get -y install apache2
